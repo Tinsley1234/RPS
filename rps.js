@@ -11,7 +11,11 @@ function computerPlays(){
     return computerMove ;
 }
 
-let score = JSON.parse(localStorage.getItem('Score'))
+let score = JSON.parse(localStorage.getItem('Score')) ||{
+    wins: 0,
+    losses: 0,
+    ties: 0
+};
 document.querySelector(".scoreboard").innerHTML=`Wins:${score.wins} Losses:${score.losses} Ties:${score.ties}`;
 function playGame(playerMove){
     let computerMove = computerPlays();
@@ -80,5 +84,3 @@ function autoplay(){
         isPlaying = false;
     }
 }
-
-let bgColor = document.querySelector('.autoplay')
